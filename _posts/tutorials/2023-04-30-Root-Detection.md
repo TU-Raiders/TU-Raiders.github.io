@@ -9,9 +9,8 @@ date: 2023-04-30 14:00:00 +0800
 categories: Tutorials
 # description: "Our first blood Challenge in ICMTC CSC CTF..."
 tags: [mobile, root detection, root bypass, android]
+toc: true
 ---
-
-
 
 Android devices come with strict access control systems and permissions set up by smartphone manufacturers to protect users from potential security threats and prevent accidental damage. However, some users may find these systems too restrictive if they want to customize their device in ways not allowed by the manufacturer.
 

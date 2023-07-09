@@ -9,10 +9,8 @@ date: 2023-04-15 14:00:00 +0800
 categories: Tutorials
 # description: "..."
 tags: [Android, Webview]
+toc: true
 ---
-
-
-# WebViews in mobile
 
 - we need to de-compile an apk to go through AndroidManifest.xml file
 
