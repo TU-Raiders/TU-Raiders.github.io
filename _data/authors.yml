@@ -1,0 +1,119 @@
+juba0x00:
+  name: Mahmoud Hawash
+  username: juba0x00
+  url: https://github.com/juba0x00/
+  avatar           : /assets/images/site_data/juba0x00.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Jr.Penetration tester."
+  location         : "Tanta"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:juba0x00@gmail.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://juba0x00.ninja/"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
+      url: "https://facebook.com/juba0x00"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/juba0x00/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/juba0x00"
+
+
+0x41ly:
+  name: Aly Khaled
+  username: 0x41ly
+  url: https://github.com/0x41ly/
+  avatar           : /assets/images/site_data/0x41ly.jpeg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Jr.Penetration tester."
+  location         : "Tanta"
+  email            : 
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:alykhaledxd@gmail.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://0x41ly.github.io/"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
+      url: "https://www.facebook.com/aly.khal3d"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/aly-khal3d/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/0x41ly"
+
+
+
+Xmosb7:
+  name: Mahmoud Mosbah
+  username: Xmosb7
+  url: https://github.com/Xmosb7/
+  avatar           : /assets/images/site_data/Xmosb7.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Jr.Penetration tester."
+  location         : "Tanta"
+  email            : 
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:TU_Raiders@outlook.com"
+    # - label: "Facebook"
+      # icon: "fab fa-fw fa-facebook-square"
+      # url: "https://facebook.com/"
+    # - label: "LinkedIn"
+      # icon: "fab fa-fw fa-linkedin"
+      # url: "https://www.linkedin.com/in/abdallah-elshinbary/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/Xmosb7"
+
+
+# ToradaGamil:
+#   name: Hossam Gamil Aly
+#   username: Torada
+#   url: https://github.com/ToradaGamil/
+#   avatar           : /assets/images/site_data/avatar.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+#   bio              : "Jr.Penetration tester."
+#   location         : "Tanta"
+#   email            : 
+#   links:
+#     - label: "Email"
+#       icon: "fas fa-fw fa-envelope-square"
+#       url: "mailto:TU_Raiders@outlook.com"
+#     - label: "Website"
+#       icon: "fas fa-fw fa-link"
+#       # url: "https://your-website.com"
+#     # - label: "Twitter"
+#     #   icon: "fab fa-fw fa-twitter-square"
+#     #   url: "https://twitter.com/_TU-Raiders"
+#     # - label: "Facebook"
+#       # icon: "fab fa-fw fa-facebook-square"
+#       # url: "https://facebook.com/"
+#     # - label: "LinkedIn"
+#       # icon: "fab fa-fw fa-linkedin"
+#       # url: "https://www.linkedin.com/in/abdallah-elshinbary/"
+#     - label: "GitHub"
+#       icon: "fab fa-fw fa-github"
+#       url: "https://github.com/TU-Raiders"
+
+
+NourhanYousef:
+  name: Nourhan Mohamed Yousef
+  username: NourhanYousef
+  url: https://github.com/nourhan37mohammed
+  avatar           : /assets/images/site_data/nourhan.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Cyber Security Enthusiast."
+  location         : "Tanta"
+  email            : 
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:nourhan.mohamed.edu@gmail.com"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/nourhan-youssef-396522248/"
