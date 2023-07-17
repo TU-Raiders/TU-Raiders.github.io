@@ -214,6 +214,8 @@ print(res.text)
 ![](/assets/images/puzzle2/explain.png)
 
 ![](/assets/images/puzzle2/demo.jpeg)
+
+
 Now we reached our objective to make the `isAdmin=true`
 
 ---
