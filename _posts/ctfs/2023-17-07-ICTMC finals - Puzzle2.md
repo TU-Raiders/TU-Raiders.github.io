@@ -9,7 +9,6 @@ date: 2023-07-17 06:00:00 +0800
 categories: CTF
 description: "no one has solved Puzzle 2 in ICMTC CSC CTF Finals..."
 tags: [php, insecure-deserialization]
-toc: true
 ---
 
 
