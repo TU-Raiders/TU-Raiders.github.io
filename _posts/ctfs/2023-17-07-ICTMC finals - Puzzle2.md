@@ -192,6 +192,9 @@ $serialized2 = str_replace('XO', 'o', $serialized);
 $unser_user = unserialize($serialized2);
 echo var_dump($unser_user);
 ```
+
+![](/assets/images/puzzle2/explain.png)
+
 solver.py
 ```python
 from requests import post
@@ -211,7 +214,6 @@ res = post(url , headers={'Cookie': cookie})
 print(res.text)
 ```
 
-![](/assets/images/puzzle2/explain.png)
 
 ![](/assets/images/puzzle2/demo.jpeg)
 
