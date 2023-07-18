@@ -103,7 +103,17 @@ To read the Flag we must set the `isAdmin` to true
   ```php
   $user= new Users("lol","lol");
   echo serialize($user);
-// O:5:"Users":4:{s:11:"�*�username";s:3:"lol";s:11:"�*�password";s:3:"lol";s:14:"�Users�isAdmin";b:0;s:9:"�Users�id";s:0:"";}
+// O:5:"Users":
+//	4:{
+//		s:11:"�*�username";
+//			s:3:"lol";
+//		s:11:"�*�password";
+//  			s:3:"lol";
+//		s:14:"�Users�isAdmin";
+//			b:0;
+//		s:9:"�Users�id";
+//  			s:0:"";
+//    }
 ```
 
 It is very important to take care of the null bytes in the serialized object as they are considered as a part of the string length here.
@@ -135,7 +145,9 @@ O:5:"Users":4:
 	s:11:"*username";
 		s:10:"ooooo";s:1
 	//and here it will gives you a parse error
-	//1:"*password";s:0:"";s:14:"UsersisAdmin";b:0;s:9:"Usersid";s:0:"";}
+	//1:"*password";
+	//s:0:"";s:14:"UsersisAdmin";
+	//b:0;s:9:"Usersid";s:0:"";}
 ```
 
 What can we benefit from this?
@@ -148,7 +160,8 @@ we will force the username to be equal `{n*o}";s:11:"�*�password";s:{passwor
 if we count the byte needed considering that the password payload is 2 digits long we need 26 bytes including the null bytes to be replaced so we will just write 26 `XO's`
 
 ```php
-$user= new Users("XOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO","{there will be a payload here}");
+$user= new Users("XOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO",
+			"{there will be a payload here}");
 
 O:5:"Users":4:
 {
