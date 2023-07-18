@@ -195,6 +195,8 @@ echo var_dump($unser_user);
 
 ![](/assets/images/puzzle2/explain.png)
 
+Now we reached our objective to make the `isAdmin=true`
+
 solver.py
 ```python
 from requests import post
@@ -218,7 +220,6 @@ print(res.text)
 ![](/assets/images/puzzle2/demo.jpeg)
 
 
-Now we reached our objective to make the `isAdmin=true`
 
 ---
 Thanks for reading our writeup
