@@ -6,5 +6,9 @@ main:
     url: /categories/#htb
   - title: "Tutorials"
     url: /categories/#tutorials
+  - title: "TryHackMe"
+    url: /categories/#tryhackme
+  - title: "Exploit Development"
+    url: /categories/#exploit-development
   - title: "All Categories"
     url: /categories
