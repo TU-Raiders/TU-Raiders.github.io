@@ -5,7 +5,7 @@ classes: wide
 ribbon: red
 date: 2021-07-16 18:00:00 +0800
 description: How to make a malware series.
-categories: Exploit Development
+categories: Exploit-Development
 toc: true
 published: true
 ---
