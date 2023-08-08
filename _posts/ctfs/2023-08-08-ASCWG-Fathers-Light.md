@@ -12,6 +12,7 @@ tags: [flask, login-bypass, ssti, rce]
 toc: true
 ---
 
+- solved by [Torada](https://www.linkedin.com/in/hossam-gamil-a267a61b7/) and [juba0x00](https://www.linkedin.com/in/juba0x00/)
 
 
 # Father’s Light Info
@@ -24,7 +25,6 @@ toc: true
 
 > Enter the enigmatic realm of "Father of Light" Unleash your skills, explore hidden paths, and uncover the depths of mysterious creations. Will you emerge as the champion? Dare to unravel the enigma.
 > 
-- solved by [Torada](https://www.linkedin.com/in/hossam-gamil-a267a61b7/) and [juba0x00](https://www.linkedin.com/in/juba0x00/)
 ---
 
 
