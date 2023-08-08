@@ -24,7 +24,7 @@ toc: true
 
 > Enter the enigmatic realm of "Father of Light" Unleash your skills, explore hidden paths, and uncover the depths of mysterious creations. Will you emerge as the champion? Dare to unravel the enigma.
 > 
-
+- solved by [juba0x00](https://www.linkedin.com/in/juba0x00/) and [Torada](https://www.linkedin.com/in/hossam-gamil-a267a61b7/)
 ---
 
 
