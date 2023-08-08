@@ -12,7 +12,7 @@ tags: [flask, login-bypass, ssti, rce]
 toc: true
 ---
 
-- solved by [Torada](https://www.linkedin.com/in/hossam-gamil-a267a61b7/) and [juba0x00](https://www.linkedin.com/in/juba0x00/)
+- solved by [Torada](https://www.linkedin.com/in/hossam-gamil-a267a61b7/) and [Juba](https://www.linkedin.com/in/juba0x00/)
 
 
 # Father’s Light Info
