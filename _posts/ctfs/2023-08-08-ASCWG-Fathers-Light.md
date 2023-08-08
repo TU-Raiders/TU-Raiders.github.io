@@ -164,13 +164,10 @@ Connection: close
 [https://youtu.be/SN6EVIG4c-0?t=562](https://youtu.be/SN6EVIG4c-0?t=562)
 
 
-<figure class="video_container">
-  <iframe src="https://youtu.be/SN6EVIG4c-0?t=562" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/SN6EVIG4c-0" title="Server-Side Template Injections Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe width="420" height="315" src="https://youtu.be/SN6EVIG4c-0?t=562" frameborder="0" allowfullscreen></iframe>
-<iframe width="420" height="315" src="https://youtu.be/SN6EVIG4c-0" frameborder="0" allowfullscreen></iframe>
 
+<iframe width="1280" height="720" src="https://youtu.be/SN6EVIG4c-0?t=562" title="Server-Side Template Injections Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 ## Crafting payload
