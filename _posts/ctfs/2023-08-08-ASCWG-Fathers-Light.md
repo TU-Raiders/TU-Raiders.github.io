@@ -4,7 +4,7 @@ author: juba0x00
 classes: wide
 ribbon: red
 header:
-  teaser: /assets/ascwg.jpg
+  teaser: /assets/images/ascwg.jpg
 date: 2023-08-08 20:00:00 +0800
 categories: CTF
 description: "Enter the enigmatic realm of "Father of Light" Unleash your skills, explore hidden paths, and uncover the depths of mysterious creations. Will you emerge as the champion? Dare to unravel the enigma."
@@ -36,7 +36,7 @@ toc: true
 - I tried to bypass the login using SQL Injection, but the server responded with `Do You think you can Hack My Applicationnnnnnnn!!!`, I’ve tried many things like requesting `/login~` to expose the backend code and sending unexpected input, sending the username or the password as an array will make an INTERNAL SERVER ERROR and expose useful information
 - part of the response
     
-    ```html
+    ```http
     HTTP/1.1 500 INTERNAL SERVER ERROR
     Server: Werkzeug/2.3.6 Python/3.11.2
     Date: Fri, 04 Aug 2023 17:04:52 GMT
@@ -165,11 +165,11 @@ Connection: close
 
 [https://youtu.be/SN6EVIG4c-0?t=562](https://youtu.be/SN6EVIG4c-0?t=562)
 
-```bash
+
 <figure class="video_container">
   <iframe src="https://youtu.be/SN6EVIG4c-0?t=562" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
-```
+
 
 ### Crafting payload
 
