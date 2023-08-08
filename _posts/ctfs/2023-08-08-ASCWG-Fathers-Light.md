@@ -5,9 +5,9 @@ classes: wide
 ribbon: red
 header:
   teaser: /assets/images/ascwg.jpg
-date: 2023-08-08 20:00:00 +0800
+date: 2023-08-08 01:00:00 +0800
 categories: CTF
-description: "Enter the enigmatic realm of "Father of Light" Unleash your skills, explore hidden paths, and uncover the depths of mysterious creations. Will you emerge as the champion? Dare to unravel the enigma."
+description: ""
 tags: [flask, login-bypass, ssti, rce]
 toc: true
 ---
