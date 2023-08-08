@@ -13,24 +13,22 @@ toc: true
 ---
 
 
-# ASCWG 2023: Father’s Light web challenge (SSTI to RCE)
 
-## Father’s Light Info
+# Father’s Light Info
 
-### Level: Medium
+## Level: Medium
 
-### Points: 600
+## Points: 600
 
-### Description :
+## Description :
 
 > Enter the enigmatic realm of "Father of Light" Unleash your skills, explore hidden paths, and uncover the depths of mysterious creations. Will you emerge as the champion? Dare to unravel the enigma.
 > 
 
 ---
 
-# Solution
 
-## Login Bypass
+# Login Bypass
 
 - there is  a login page in /login, redirected to after opening the link
 - I tried to bypass the login using SQL Injection, but the server responded with `Do You think you can Hack My Applicationnnnnnnn!!!`, I’ve tried many things like requesting `/login~` to expose the backend code and sending unexpected input, sending the username or the password as an array will make an INTERNAL SERVER ERROR and expose useful information
@@ -105,7 +103,7 @@ Connection: close
     ![Untitled](/assets/images/ASCWG-Fathers-Light/Untitled.png)
     
 
-## Regular user to Admin user
+# Regular user to Admin user
 
 - we noticed in the last response that the server sent a session, flask session 🤔hmm, did you think of what I thought, we can decode this session token using `flask-unsign` and brute force the secret to sign a new modified one. Easy, right?
     
@@ -149,14 +147,14 @@ Connection: close
 
 ![Untitled](/assets/images/ASCWG-Fathers-Light/Untitled%202.png)
 
-## SSTI
+# SSTI
 
 - after fuzzing, we found `/dashboard`
     
     ![Untitled](/assets/images/ASCWG-Fathers-Light/Untitled%203.png)
     
 
-### SSTI PoC
+## SSTI PoC
 
 - we tried to exploit SSTI in all the input fields (name, email, and post_content), but only the name is vulnerable to SSTI, firstly we tried `{{2*2}}`, I’m so sorry for not using `7*7`, I feel like I broke the rules 😅
     
@@ -170,8 +168,12 @@ Connection: close
   <iframe src="https://youtu.be/SN6EVIG4c-0?t=562" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
 
+<iframe width="420" height="315" src="https://youtu.be/SN6EVIG4c-0?t=562" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="https://youtu.be/SN6EVIG4c-0" frameborder="0" allowfullscreen></iframe>
 
-### Crafting payload
+
+
+## Crafting payload
 
 - we tried many payloads, but there are many characters blocked, like __ and others, to get the flag you could just send {{ config }} and URL encode config, but this is not what I did, I got an RCE, let’s dive in
 - I found that the server blocks `__class__` but does not block its UTF-32, so I tough that we can use the following payload to get an RCE
@@ -192,7 +194,7 @@ Connection: close
 {{''['__class__']['__mro__'][1]['__subclasses__'][index_of_catch_warnings]['__init__']['__globals__']['sys']['modules']['os']['popen']('id')['read']()}}
 ```
 
-### finding `catch_warnings` index
+## finding `catch_warnings` index
 
 by sending `{{''['__class__']['__mro__'][1]['__subclasses__']` in UTF-32 like the following,
 
@@ -214,7 +216,7 @@ we will get
     
     - great, now we can proceed with our exploitation
 
-### getting RCE
+## getting RCE
 
 - we found that ‘`popen`’ and ‘`read`’ is blocked, so we converted it to UTF-32 too
 
@@ -224,7 +226,7 @@ we will get
 
 ![Untitled](/assets/images/ASCWG-Fathers-Light/Untitled%208.png)
 
-### Getting the flag
+## Getting the flag
 
 ![Untitled](/assets/images/ASCWG-Fathers-Light/Untitled%209.png)
 
