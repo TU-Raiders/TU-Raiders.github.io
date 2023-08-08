@@ -5,9 +5,9 @@ classes: wide
 ribbon: red
 header:
   teaser: /assets/images/ascwg.jpg
-date: 2023-08-08 01:00:00 +0800
+date: 2023-08-07 20:00:00 +0800
 categories: CTF
-description: ""
+description: "ASCWG 2023 web challenge"
 tags: [flask, login-bypass, ssti, rce]
 toc: true
 ---
